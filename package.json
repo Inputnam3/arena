@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.11",
+    "autoprefixer": "^10.4.21",
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1",
+    "tailwindcss": "^4.1.11"
+  },
+  "scripts": {
+    "build-css": "postcss ./css/input.css -o ./css/output.css --watch"
+  }
+}

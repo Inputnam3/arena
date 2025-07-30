@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS professores (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    especialidade VARCHAR(255)
+);

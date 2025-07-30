@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Arena Ricardo Santos</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Teko & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilo base com as fontes personalizadas */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-teko {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .text-shadow-strong {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .bg-red-brand {
+            background-color: #E50914; /* Tom de vermelho vibrante */
+        }
+        .text-red-brand {
+            color: #E50914;
+        }
+        .border-red-brand {
+            border-color: #E50914;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
+        <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <span class="font-teko text-4xl font-bold text-gray-800 tracking-wider">ARENA RICARDO SANTOS</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html#filosofia" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Filosofia</a>
+                <a href="index.html#planos" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Planos</a>
+                <a href="index.html#contato" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Contato</a>
+            </div>
+
+            <a href="index.html#contato" class="hidden lg:block bg-red-brand text-white font-bold py-2.5 px-6 rounded-md hover:bg-red-700 transition-transform hover:scale-105">
+                INSCREVA-SE
+            </a>
+            <a href="login.html" class="hidden lg:block border-2 border-red-brand text-red-brand font-bold py-2 px-5 rounded-md hover:bg-red-brand hover:text-white transition-colors ml-4">
+                LOGIN
+            </a>
+
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+            <a href="index.html#filosofia" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Filosofia</a>
+            <a href="index.html#planos" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Planos</a>
+            <a href="index.html#contato" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Contato</a>
+            <div class="p-4">
+                 <a href="index.html#contato" class="w-full text-center block bg-red-brand text-white font-bold py-3 px-5 rounded-md hover:bg-red-700">
+                    INSCREVA-SE
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex items-center justify-center min-h-[calc(100vh-150px)] bg-gray-50">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md text-center">
+            <h2 class="font-teko text-4xl font-bold mb-6 text-gray-800">ACESSO RESTRITO</h2>
+            
+            <form>
+                <div class="mb-4">
+                    <input type="text" placeholder="Usuário ou E-mail" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-brand text-gray-800">
+                </div>
+                <div class="mb-6">
+                    <input type="password" placeholder="Senha" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-brand text-gray-800">
+                </div>
+
+                <div class="mb-6 text-left">
+                    <p class="font-semibold mb-2">Entrar como:</p>
+                    <div class="flex items-center mb-2">
+                        <input type="radio" id="pais-alunos" name="user-type" value="pais-alunos" class="mr-2 text-red-brand focus:ring-red-brand">
+                        <label for="pais-alunos" class="text-gray-700">Pais e Alunos</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input type="radio" id="professores-adm" name="user-type" value="professores-adm" class="mr-2 text-red-brand focus:ring-red-brand">
+                        <label for="professores-adm" class="text-gray-700">Professores e Administrativo</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-red-brand text-white font-bold text-lg py-3 px-6 rounded-md hover:bg-red-700 transition-colors">
+                    ENTRAR
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2025 Arena Ricardo Santos. Criado com paixão pelo Judô.</p>
+            <p class="text-sm">Rua México, 360 - JD Gisela, Toledo - PR</p>
+            <p class="text-sm">(45) 99906-2131</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.instagram.com/arena_ricardosantos/" target="_blank" class="hover:text-red-brand"><i data-lucide="instagram"></i></a>
+                <a href="https://www.facebook.com/JudoRicardoSantos" target="_blank" class="hover:text-red-brand"><i data-lucide="facebook"></i></a>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializa Lucide Icons
+        lucide.createIcons();
+
+        // Lógica para o menu mobile (copiado do index.html)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Lógica para simular o login e redirecionar
+        const loginForm = document.querySelector('form');
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const userType = document.querySelector('input[name="user-type"]:checked');
+            if (userType) {
+                if (userType.value === 'pais-alunos') {
+                    window.location.href = 'dashboard.html';
+                } else if (userType.value === 'professores-adm') {
+                    window.location.href = 'admin-dashboard.html';
+                }
+            } else {
+                alert('Por favor, selecione o tipo de usuário.');
+            }
+        });
+    </script>
+
+</body>
+</html>

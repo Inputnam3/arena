@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Ricardo Santos - Judô</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              teko: ['Teko', 'sans-serif'],
+            },
+            colors: {
+              'red-brand': '#E50914',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Google Fonts: Teko & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilo base com as fontes personalizadas */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+        h1, h2, h3, .font-teko {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .text-shadow-strong {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .bg-red-brand {
+            background-color: #E50914; /* Tom de vermelho vibrante */
+        }
+        .text-red-brand {
+            color: #E50914;
+        }
+        .border-red-brand {
+            border-color: #E50914;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- ===== LOGIN MODAL ===== -->
+    <div id="login-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-8 m-4 text-gray-800 relative">
+            <button id="close-modal-button" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h2 class="font-teko text-4xl font-bold text-center mb-6">ÁREA RESTRITA</h2>
+            <form id="login-form">
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-brand" required>
+                </div>
+                <div class="mb-6">
+                    <label for="password" class="block text-gray-700 font-semibold mb-2">Senha</label>
+                    <input type="password" id="password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-brand" required>
+                </div>
+                <button type="submit" class="w-full bg-red-brand text-white font-bold py-3 px-6 rounded-md hover:bg-red-700 transition-transform hover:scale-105">
+                    ENTRAR
+                </button>
+                <p id="login-error" class="text-red-500 text-center mt-4"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200 py-0">
+        <nav class="container mx-auto px-6 py-0 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="img/Prancheta 29.png" alt="Arena Ricardo Santos Logo" class="h-24 w-auto scale-[1.3]">
+            </a>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#filosofia" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Filosofia</a>
+                <a href="#planos" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Planos</a>
+                <a href="#contato" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Contato</a>
+            </div>
+
+            <a href="#contato" class="hidden lg:block bg-red-brand text-white font-bold py-2.5 px-6 rounded-md hover:bg-red-700 transition-transform hover:scale-105">
+                INSCREVA-SE
+            </a>
+            <button id="login-button" class="hidden lg:block border-2 border-red-brand text-red-brand font-bold py-2.5 px-6 rounded-md hover:bg-red-brand hover:text-white transition-colors ml-3">
+                LOGIN
+            </button>
+
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+            <a href="#filosofia" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Filosofia</a>
+            <a href="#planos" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Planos</a>
+            <a href="#contato" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Contato</a>
+            <div class="p-4">
+                 <a href="#contato" class="w-full text-center block bg-red-brand text-white font-bold py-3 px-5 rounded-md hover:bg-red-700">
+                    INSCREVA-SE
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section id="inicio" class="relative min-h-[85vh] flex items-center justify-center text-center text-white">
+            <div class="absolute inset-0 bg-cover bg-center bg-fixed grayscale" style="background-image: url('img/c396a1dbe4243d06860b700ac2f32f17 (1).jpeg');"></div>
+            <div class="absolute inset-0 bg-black/70"></div>
+            
+            <div class="relative container mx-auto px-6 p-8 rounded-lg backdrop-blur-sm bg-black/30">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold uppercase text-shadow-strong">
+                    DOMINE O CAMINHO SUAVE
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-200 font-light">
+                    Transforme sua força interior em técnica. Junte-se à Arena Ricardo Santos e descubra o verdadeiro espírito do judô.
+                </p>
+                <div class="mt-8">
+                    <a href="#planos" class="bg-red-brand text-white font-bold py-4 px-10 rounded-md text-lg uppercase hover:bg-red-700 transition-transform hover:scale-105 inline-block">
+                        Comece sua jornada
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PHILOSOPHY SECTION ===== -->
+        <section id="filosofia" class="py-20 md:py-32 bg-white text-black">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <img src="img/screen-5 (1).jpg" alt="Jigoro Kano" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-8 border-red-brand shadow-2xl">
+                    </div>
+                    <div class="w-full lg:w-1/2 text-center lg:text-left">
+                        <div class="w-20 h-1 bg-red-brand mb-4 mx-auto lg:mx-0"></div>
+                        <h2 class="font-teko text-5xl md:text-6xl font-bold">A MENTE POR TRÁS DA ARTE</h2>
+                        <span class="text-red-brand font-bold text-lg">JIGORO KANO</span>
+                        <blockquote class="mt-4">
+                            <p class="text-2xl md:text-3xl font-light italic font-lora text-gray-800 leading-relaxed">"Saber cada dia um pouco mais e usá-lo todos os dias para o bem, esse é o caminho do verdadeiro judoca."</p>
+                        </blockquote>
+                        <p class="mt-6 text-gray-600">
+                            Nossa escola se baseia nos princípios fundamentais do judô: disciplina, respeito e o uso eficiente da energia. Aqui, você não aprende apenas a lutar, aprende a viver melhor.
+                        </p>
+                        <p class="mt-4 text-gray-600">
+                            Fundada em Toledo, Paraná, a Arena Ricardo Santos nasceu da paixão e dedicação do seu criador, Ricardo Santos, ao judô. Com uma trajetória inspiradora no esporte, a escola reflete o compromisso de Ricardo em transmitir não apenas técnicas, mas os valores que moldam grandes judocas e cidadãos.
+                        </p>
+                        <div class="mt-8">
+                            <a href="jigoro-kano.html" class="inline-block bg-red-brand text-white font-bold py-3 px-8 rounded-md hover:bg-red-700 transition-colors">
+                                SAIBA MAIS SOBRE A FILOSOFIA
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== WHY US SECTION ===== -->
+        <section class="py-20 md:py-24 relative">
+            <div class="absolute inset-0 bg-cover bg-center opacity-20 blur-xs contrast-125" style="background-image: url('img/Prancheta 1.png');"></div>
+            <div class="relative container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <div class="w-20 h-1 bg-red-brand mb-4 mx-auto"></div>
+                    <h2 class="font-teko text-5xl md:text-6xl font-bold">POR QUE ESCOLHER A ARENA RICARDO SANTOS?</h2>
+                    <p class="max-w-xl mx-auto text-gray-600">Mais que uma academia, um centro de desenvolvimento para toda a família.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Feature 1: Instrutores de Elite -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center filter blur-sm opacity-30" style="background-image: url('img/artes-marciais-de-close-up-de-faixa-preta.jpg');"></div>
+                        <div class="relative z-10">
+                            <i data-lucide="award" class="w-12 h-12 text-red-brand mx-auto mb-4"></i>
+                            <h3 class="font-teko text-3xl font-bold text-gray-800">INSTRUTORES DE ELITE</h3>
+                            <p class="text-gray-600">Aprenda com mestres experientes que inspiram disciplina, técnica e paixão pelo judô, guiando cada aluno ao seu máximo potencial.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 2: Estrutura Moderna -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center filter blur-sm opacity-30" style="background-image: url('img/ginasio-de-ginastica-organizado-preparado-para-treinamento.jpg');"></div>
+                        <div class="relative z-10">
+                            <i data-lucide="building-2" class="w-12 h-12 text-red-brand mx-auto mb-4"></i>
+                            <h3 class="font-teko text-3xl font-bold text-gray-800">ESTRUTURA MODERNA</h3>
+                            <p class="text-gray-600">Treine em um ambiente seguro, limpo e equipado com tatames de alta qualidade, projetado para o conforto e a evolução de todos.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 3: Ambiente Familiar -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center filter blur-sm opacity-30" style="background-image: url('img/retrato-em-preto-e-branco-de-um-atleta-participando-dos-esportes-campeonato-olimpico.jpg');"></div>
+                        <div class="relative z-10">
+                            <i data-lucide="heart-handshake" class="w-12 h-12 text-red-brand mx-auto mb-4"></i>
+                            <h3 class="font-teko text-3xl font-bold text-gray-800">AMBIENTE FAMILIAR</h3>
+                            <p class="text-gray-600">Faça parte de uma comunidade onde o respeito, a amizade e o apoio mútuo são a base para o crescimento pessoal e coletivo.</p>
+                        </div>
+                    </div>
+                    <!-- Novo Card: Desenvolvimento Integral -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-cover bg-center filter blur-sm opacity-30" style="background-image: url('img/mulher-meditando-com-os-olhos-fechados.jpg');"></div>
+                        <div class="relative z-10">
+                            <i data-lucide="brain" class="w-12 h-12 text-red-brand mx-auto mb-4"></i>
+                            <h3 class="font-teko text-3xl font-bold text-gray-800">DESENVOLVIMENTO INTEGRAL</h3>
+                            <p class="text-gray-600">Para crianças e adultos: o judô desenvolve disciplina, foco, autoconfiança, coordenação motora e resiliência, preparando para a vida.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== PRICING SECTION ===== -->
+        <section id="planos" class="py-20 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <div class="w-20 h-1 bg-red-brand mb-4 mx-auto"></div>
+                    <h2 class="font-teko text-5xl md:text-6xl font-bold">ESCOLHA SEU PLANO</h2>
+                    <p class="max-w-xl mx-auto text-gray-600">Flexibilidade para sua jornada no judô começar agora.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Plano 1 -->
+                    <div class="bg-white border border-gray-200 rounded-lg p-8 flex flex-col text-center shadow-lg">
+                        <h3 class="font-teko text-4xl font-bold text-gray-800">PLANO GUERREIRO</h3>
+                        <p class="text-gray-600 mb-6">2x por semana</p>
+                        <p class="text-5xl font-bold my-4 text-gray-800">R$180<span class="text-xl font-medium text-gray-600">/mês</span></p>
+                        <p class="text-gray-600 mb-8 flex-grow">Ideal para quem busca consistência e evolução técnica contínua.</p>
+                        <a href="#contato" class="w-full text-center mt-auto bg-gray-100 text-gray-800 font-bold py-3 px-5 rounded-md hover:bg-gray-200 transition-colors">Selecionar Plano</a>
+                    </div>
+                    <!-- Plano 2 (Destaque) -->
+                    <div class="bg-white border-2 border-red-brand rounded-lg p-8 flex flex-col text-center shadow-2xl shadow-red-200">
+                        <h3 class="font-teko text-4xl font-bold text-red-brand">PLANO SAMURAI</h3>
+                        <p class="text-gray-600 mb-6">3x por semana</p>
+                        <p class="text-5xl font-bold my-4 text-gray-800">R$190<span class="text-xl font-medium text-gray-600">/mês</span></p>
+                        <p class="text-gray-600 mb-8 flex-grow">Para os mais dedicados. Treine quando quiser e acelere seus resultados.</p>
+                        <a href="#contato" class="w-full text-center mt-auto bg-red-brand text-white font-bold py-3 px-5 rounded-md hover:bg-red-700">Tornar-se Samurai</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section id="contato" class="py-20 md:py-24 bg-gray-50 text-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-teko text-5xl md:text-6xl font-bold">DÊ O PRIMEIRO PASSO</h2>
+                    <p class="max-w-xl mx-auto text-gray-600">Agende uma aula experimental gratuita. Sem compromisso.</p>
+                </div>
+                <div class="max-w-2xl mx-auto text-center">
+                    <button id="contact-options-button" class="w-full bg-red-brand text-white font-bold text-lg py-4 px-8 rounded-md hover:bg-red-700 transition-colors">
+                        ESCOLHA COMO FALAR CONOSCO
+                    </button>
+
+                    <div id="contact-options-menu" class="hidden mt-4 bg-white p-6 rounded-lg shadow-xl border border-gray-200 transition-all duration-300 opacity-0">
+                        <h3 class="font-teko text-3xl font-bold mb-4">Nossas Formas de Contato</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <a href="https://wa.me/5545999062131" target="_blank" class="flex items-center justify-center p-4 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors">
+                                <i data-lucide="whatsapp" class="w-6 h-6 mr-2"></i> WhatsApp
+                            </a>
+                            <a href="https://www.facebook.com/arena.ricardosantos" target="_blank" class="flex items-center justify-center p-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                                <i data-lucide="facebook" class="w-6 h-6 mr-2"></i> Facebook
+                            </a>
+                            <a href="https://www.instagram.com/arena.ricardosantos" target="_blank" class="flex items-center justify-center p-4 bg-pink-600 text-white rounded-md hover:bg-pink-700 transition-colors">
+                                <i data-lucide="instagram" class="w-6 h-6 mr-2"></i> Instagram
+                            </a>
+                            <a href="mailto:contato@arenaricardosantos.com.br" class="flex items-center justify-center p-4 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors">
+                                <i data-lucide="mail" class="w-6 h-6 mr-2"></i> E-mail
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2025 Arena Ricardo Santos. Criado com paixão pelo Judô.</p>
+            <p class="text-sm">Rua México, 360 - JD Gisela, Toledo - PR</p>
+            <p class="text-sm">(45) 99906-2131</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.instagram.com/arena_ricardosantos/" target="_blank" class="hover:text-red-brand"><i data-lucide="instagram"></i></a>
+                <a href="https://www.facebook.com/JudoRicardoSantos" target="_blank" class="hover:text-red-brand"><i data-lucide="facebook"></i></a>
+                
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Inicializa Lucide Icons
+        lucide.createIcons();
+
+        // Lógica para o menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fecha o menu mobile ao clicar em um link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Lógica para o menu de opções de contato
+        const contactOptionsButton = document.getElementById('contact-options-button');
+        const contactOptionsMenu = document.getElementById('contact-options-menu');
+
+        contactOptionsButton.addEventListener('click', () => {
+            contactOptionsMenu.classList.toggle('hidden');
+            if (!contactOptionsMenu.classList.contains('hidden')) {
+                contactOptionsMenu.classList.remove('opacity-0');
+                contactOptionsMenu.classList.add('opacity-100');
+            } else {
+                contactOptionsMenu.classList.remove('opacity-100');
+                contactOptionsMenu.classList.add('opacity-0');
+            }
+        });
+
+        // Lógica para o modal de login
+        const loginButton = document.getElementById('login-button');
+        const loginModal = document.getElementById('login-modal');
+        const closeModalButton = document.getElementById('close-modal-button');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+
+        loginButton.addEventListener('click', () => {
+            loginModal.classList.remove('hidden');
+            lucide.createIcons(); // Re-renderiza os ícones Lucide dentro do modal
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            loginModal.classList.add('hidden');
+            loginError.textContent = ''; // Limpa a mensagem de erro ao fechar
+        });
+
+        // Fechar modal ao clicar fora dele
+        loginModal.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.classList.add('hidden');
+                loginError.textContent = '';
+            }
+        });
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = loginForm.email.value;
+            const password = loginForm.password.value;
+
+            loginError.textContent = ''; // Limpa mensagens de erro anteriores
+
+            if (email === 'admin@arenasjc.com' && password === 'admin123') {
+                window.location.href = 'admin-dashboard.html';
+            } else if (email === 'aluno@arenasjc.com' && password === 'aluno123') {
+                window.location.href = 'dashboard.html';
+            } else {
+                loginError.textContent = 'Email ou senha incorretos.';
+            }
+        });
+    </script>
+
+</body>
+</html>

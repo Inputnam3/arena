@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Arena Ricardo Santos</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              teko: ['Teko', 'sans-serif'],
+            },
+            colors: {
+              'red-brand': '#B71C1C',
+            }
+          }
+        }
+      }
+    </script>
+    
+    <!-- Google Fonts: Teko & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilo base com as fontes personalizadas */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-teko {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .text-shadow-strong {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .bg-red-brand {
+            background-color: #B71C1C; /* Tom de vermelho vibrante */
+        }
+        .text-red-brand {
+            color: #B71C1C;
+        }
+        .border-red-brand {
+            border-color: #B71C1C;
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .animate-marquee {
+            animation: marquee 15s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="bg-black/80 backdrop-blur-lg sticky top-0 z-50 border-b border-red-brand py-0">
+        <nav class="container mx-auto px-6 py-0 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="img/Prancheta 38.png" alt="Arena Ricardo Santos Logo" class="h-24 w-auto scale-[1.3]">
+            </a>
+            
+            <div class="hidden lg:flex items-center flex-grow justify-center overflow-hidden h-8">
+                <div class="animate-marquee whitespace-nowrap text-white font-semibold">
+                    <span class="mx-4">Aulas de Judô para todas as idades! Agende sua aula experimental.</span>
+                    <span class="mx-4">Inscrições abertas para o Campeonato Interno de Judô!</span>
+                    <span class="mx-4">Feriado: Não haverá aulas no dia 25/07.</span>
+                </div>
+            </div>
+
+            <a href="index.html" class="hidden lg:block border-2 border-red-brand text-red-brand font-bold py-2 px-5 rounded-md hover:bg-red-brand hover:text-white transition-colors ml-4">
+                LOGOUT
+            </a>
+
+            <button id="mobile-menu-button" class="lg:hidden text-white">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-black border-t border-red-brand">
+            <div class="p-4">
+                 <a href="index.html" class="w-full text-center block bg-red-brand text-white font-bold py-3 px-5 rounded-md hover:bg-red-700">
+                    LOGOUT
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex flex-col lg:flex-row min-h-[calc(100vh-150px)] bg-black">
+        <!-- Sidebar -->
+        <nav class="w-full lg:w-64 bg-black p-6 border-b lg:border-r border-red-brand shadow-xl lg:shadow-none">
+            <h3 class="font-teko text-2xl font-bold mb-6 text-white">MENU DO ALUNO</h3>
+            <ul class="space-y-2">
+                <li><a href="#horarios" class="flex items-center p-3 rounded-md text-lg text-white hover:bg-gray-900 hover:text-red-brand font-semibold transition-all duration-200"><i data-lucide="calendar" class="w-6 h-6 mr-3"></i> Horários de Aula</a></li>
+                <li><a href="#progresso" class="flex items-center p-3 rounded-md text-lg text-white hover:bg-gray-900 hover:text-red-brand font-semibold transition-all duration-200"><i data-lucide="trending-up" class="w-6 h-6 mr-3"></i> Progresso de Faixa</a></li>
+                <li><a href="#avisos" class="flex items-center p-3 rounded-md text-lg text-white hover:bg-gray-900 hover:text-red-brand font-semibold transition-all duration-200"><i data-lucide="bell" class="w-6 h-6 mr-3"></i> Avisos e Comunicados</a></li>
+                <li><a href="#eventos" class="flex items-center p-3 rounded-md text-lg text-white hover:bg-gray-900 hover:text-red-brand font-semibold transition-all duration-200"><i data-lucide="calendar-check" class="w-6 h-6 mr-3"></i> Calendário de Eventos</a></li>
+                <li><a href="#financeiro" class="flex items-center p-3 rounded-md text-lg text-white hover:bg-gray-900 hover:text-red-brand font-semibold transition-all duration-200"><i data-lucide="dollar-sign" class="w-6 h-6 mr-3"></i> Situação Financeira</a></li>
+                <li><a href="#galeria" class="flex items-center p-3 rounded-md text-lg text-white hover:bg-gray-900 hover:text-red-brand font-semibold transition-all duration-200"><i data-lucide="image" class="w-6 h-6 mr-3"></i> Galeria de Fotos/Vídeos</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <div id="dashboard-content" class="flex-grow p-6 lg:p-10 bg-black">
+            <div id="horarios-content" class="content-section">
+                    <h2 class="font-teko text-4xl font-bold mb-6 text-white">MEUS HORÁRIOS DE AULA</h2>
+                    <p class="text-white mb-4">Confira abaixo a sua grade de horários e informações importantes sobre as aulas.</p>
+                    <div class="mt-6 p-4 bg-black rounded-lg shadow">
+                        <table class="min-w-full bg-black">
+                            <thead>
+                                <tr>
+                                    <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Dia da Semana</th>
+                                    <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Horário</th>
+                                    <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Modalidade</th>
+                                    <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Local</th>
+                                    <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Professor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">Segunda-feira</td>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">18:00 - 19:00</td>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">Judô Infantil</td>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">Tatame Principal</td>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">Prof. Ricardo</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">Quarta-feira</td>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">18:00 - 19:00</td>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">Judô Infantil</td>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">Tatame Principal</td>
+                                    <td class="py-2 px-4 border-b border-gray-900 text-white">Prof. Ricardo</td>
+                                </tr>
+                                <!-- Adicione mais linhas conforme necessário -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+
+            <div id="progresso-content" class="content-section hidden">
+                <h2 class="font-teko text-4xl font-bold mb-6 text-white">PROGRESSO DE FAIXA</h2>
+                <p class="text-white mb-4">Acompanhe seu desenvolvimento no judô e o caminho para a próxima faixa.</p>
+                <div class="mt-6 p-6 bg-black rounded-lg shadow">
+                    <p class="font-semibold text-lg mb-2">Faixa Atual: <span class="text-red-brand">Branca</span></p>
+                    <p class="font-semibold text-lg mb-4">Próxima Faixa: <span class="text-red-brand">Cinza</span></p>
+
+                    <div class="w-full bg-gray-900 rounded-full h-4 mb-4">
+                        <div class="bg-red-brand h-4 rounded-full" style="width: 40%"></div>
+                    </div>
+                    <p class="text-sm text-white mb-4">Progresso para a próxima faixa: 40%</p>
+
+                    <h3 class="font-teko text-2xl font-bold mt-6 mb-3 text-white">Requisitos para a Próxima Faixa:</h3>
+                    <ul class="list-disc list-inside text-white space-y-2">
+                        <li>Presença em no mínimo 20 aulas.</li>
+                        <li>Domínio de 5 quedas básicas (O-goshi, Ippon Seoi Nage, Harai Goshi, Uchi Mata, De Ashi Harai).</li>
+                        <li>Domínio de 3 imobilizações (Kesa Gatame, Hon Kesa Gatame, Kami Shiho Gatame).</li>
+                        <li>Participação em pelo menos um evento interno da escola.</li>
+                        <li>Demonstrar respeito e disciplina em todas as aulas.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="avisos-content" class="content-section hidden">
+                <h2 class="font-teko text-4xl font-bold mb-6 text-white">AVISOS E COMUNICADOS</h2>
+                <p class="text-white mb-4">Fique por dentro das últimas notícias e comunicados importantes da Arena Ricardo Santos.</p>
+                <div class="mt-6 space-y-6">
+                    <div class="p-6 bg-black rounded-lg shadow border-l-4 border-red-brand">
+                        <p class="text-sm text-white mb-2">20 de Julho de 2025</p>
+                        <h3 class="font-semibold text-xl text-white mb-2">FERIADO: SEM AULAS NO DIA 25/07</h3>
+                        <p class="text-white">Informamos que não haverá aulas em todas as modalidades no dia 25 de Julho, devido ao feriado municipal. Retornaremos às atividades normais no dia 26/07.</p>
+                    </div>
+                    <div class="p-6 bg-black rounded-lg shadow border-l-4 border-red-brand">
+                        <p class="text-sm text-white mb-2">15 de Julho de 2025</p>
+                        <h3 class="font-semibold text-xl text-white mb-2">INSCRIÇÕES ABERTAS: CAMPEONATO INTERNO DE JUDÔ!</h3>
+                        <p class="text-white">Prepare-se para o nosso tradicional Campeonato Interno! Uma excelente oportunidade para testar suas habilidades e confraternizar. Inscrições abertas na secretaria até 05/08.</p>
+                    </div>
+                    <div class="p-6 bg-black rounded-lg shadow border-l-4 border-red-brand">
+                        <p class="text-sm text-white mb-2">01 de Julho de 2025</p>
+                        <h3 class="font-semibold text-xl text-white mb-2">NOVA TURMA DE JUDÔ PARA INICIANTES</h3>
+                        <p class="text-white">Devido à alta demanda, abrimos uma nova turma de Judô para Iniciantes (adultos e crianças a partir de 6 anos). Vagas limitadas! Entre em contato para mais informações.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="eventos-content" class="content-section hidden">
+                <h2 class="font-teko text-4xl font-bold mb-6 text-white">CALENDÁRIO DE EVENTOS</h2>
+                <p class="text-white mb-4">Confira os próximos eventos da Arena Ricardo Santos e não perca nenhuma atividade!</p>
+                <div class="mt-6 space-y-6">
+                    <div class="p-6 bg-black rounded-lg shadow border-l-4 border-red-brand">
+                        <p class="text-sm text-white mb-2">05 de Agosto de 2025</p>
+                        <h3 class="font-semibold text-xl text-white mb-2">SEMINÁRIO DE TÉCNICAS AVANÇADAS</h3>
+                        <p class="text-white">Um dia intensivo de aprimoramento com mestres convidados. Aberto para faixas azul e acima.</p>
+                        <p class="text-white mt-2">Local: Tatame Principal | Horário: 09:00 - 17:00</p>
+                    </div>
+                    <div class="p-6 bg-black rounded-lg shadow border-l-4 border-red-brand">
+                        <p class="text-sm text-white mb-2">10 de Setembro de 2025</p>
+                        <h3 class="font-semibold text-xl text-white mb-2">FESTIVAL DE JUDÔ INFANTIL</h3>
+                        <p class="text-white">Um evento divertido e educativo para nossos pequenos judocas demonstrarem suas habilidades e celebrarem o esporte.</p>
+                        <p class="text-white mt-2">Local: Ginásio Municipal | Horário: 14:00 - 17:00</p>
+                    </div>
+                    <div class="p-6 bg-black rounded-lg shadow border-l-4 border-red-brand">
+                        <p class="text-sm text-white mb-2">20 de Outubro de 2025</p>
+                        <h3 class="font-semibold text-xl text-white mb-2">EXAME DE FAIXA</h3>
+                        <p class="text-white">Data oficial para o exame de graduação. Prepare-se e mostre todo o seu esforço!</p>
+                        <p class="text-white mt-2">Local: Tatame Principal | Horário: A definir</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="financeiro-content" class="content-section hidden">
+                <h2 class="font-teko text-4xl font-bold mb-6 text-white">SITUAÇÃO FINANCEIRA</h2>
+                <p class="text-white mb-4">Consulte suas mensalidades, status de pagamento e histórico.</p>
+                <div class="mt-6 p-6 bg-black rounded-lg shadow">
+                    <h3 class="font-teko text-2xl font-bold mb-3 text-white">Resumo Atual:</h3>
+                    <p class="text-white mb-2"><span class="font-semibold">Mensalidade de Julho:</span> <span class="text-green-600 font-bold">Paga</span></p>
+                    <p class="text-white mb-4"><span class="font-semibold">Próximo Vencimento:</span> 05 de Agosto de 2025</p>
+
+                    <h3 class="font-teko text-2xl font-bold mt-6 mb-3 text-white">Histórico de Pagamentos:</h3>
+                    <table class="min-w-full bg-black">
+                        <thead>
+                            <tr>
+                                <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Mês/Ano</th>
+                                <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Valor</th>
+                                <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Status</th>
+                                <th class="py-2 px-4 border-b border-red-brand text-left text-sm font-semibold text-white">Data Pagamento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">Julho/2025</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">R$ 180,00</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white text-green-600 font-semibold">Pago</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">01/07/2025</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">Junho/2025</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">R$ 180,00</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white text-green-600 font-semibold">Pago</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">01/06/2025</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">Maio/2025</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">R$ 180,00</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white text-green-600 font-semibold">Pago</td>
+                                <td class="py-2 px-4 border-b border-gray-900 text-white">01/05/2025</td>
+                            </tr>
+                            <!-- Adicione mais linhas conforme necessário -->
+                        </tbody>
+                    </table>
+                    <p class="text-white mt-4">Para detalhes completos ou dúvidas, entre em contato com a secretaria.</p>
+                </div>
+            </div>
+
+            <div id="galeria-content" class="content-section hidden">
+                <h2 class="font-teko text-4xl font-bold mb-6 text-white">GALERIA DE FOTOS/VÍDEOS</h2>
+                <p class="text-white mb-4">Reviva os melhores momentos dos treinos, eventos e campeonatos da Arena Ricardo Santos!</p>
+                <div class="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <img src="img/artes-marciais-de-close-up-de-faixa-preta.jpg" alt="Treino de Judô" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="img/ginasio-de-ginastica-organizado-preparado-para-treinamento.jpg" alt="Evento da Escola" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="img/mulher-meditando-com-os-olhos-fechados.jpg" alt="Campeonato" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="img/retrato-em-preto-e-branco-de-um-atleta-participando-dos-esportes-campeonato-olimpico.jpg" alt="Aula de Judô" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="img/screen-5 (1).jpg" alt="Treino de Judô" class="w-full h-auto rounded-lg shadow-md object-cover">
+                </div>
+                <p class="text-white mt-6">Em breve, mais fotos e vídeos! Fique ligado!</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-black border-t border-red-brand">
+        <div class="container mx-auto px-6 py-8 text-center text-white">
+            <p>&copy; 2025 Arena Ricardo Santos. Criado com paixão pelo Judô.</p>
+            <p class="text-sm">Rua México, 360 - JD Gisela, Toledo - PR</p>
+            <p class="text-sm">(45) 99906-2131</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.instagram.com/arena_ricardosantos/" target="_blank" class="hover:text-red-brand"><i data-lucide="instagram"></i></a>
+                <a href="https://www.facebook.com/JudoRicardoSantos" target="_blank" class="hover:text-red-brand"><i data-lucide="facebook"></i></a>
+                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializa Lucide Icons
+        lucide.createIcons();
+
+        // Lógica para o menu mobile (copiado do index.html)
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Lógica para navegação do Dashboard
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.getAttribute('href').substring(1) + '-content';
+
+                contentSections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+
+                document.getElementById(targetId).classList.remove('hidden');
+
+                navLinks.forEach(navLink => {
+                    navLink.classList.remove('text-red-brand', 'font-bold', 'border-2', 'border-red-brand');
+                    navLink.classList.add('text-white'); // Garante que o texto volte a ser branco
+                });
+                link.classList.remove('text-white'); // Remove o branco antes de adicionar o vermelho
+                link.classList.add('text-red-brand', 'font-bold', 'border-2', 'border-red-brand');
+            });
+        });
+
+        // Exibir a primeira seção por padrão ao carregar a página
+        document.addEventListener('DOMContentLoaded', () => {
+            if (navLinks.length > 0) {
+                navLinks[0].click();
+            }
+
+            // Funcionalidades simuladas para as seções do aluno
+            console.log("Dashboard do Aluno Carregada!");
+
+            // Horários de Aula
+            document.getElementById('horarios-content').addEventListener('click', () => {
+                console.log("Horários de Aula acessados.");
+            });
+
+            // Progresso de Faixa
+            document.getElementById('progresso-content').addEventListener('click', () => {
+                console.log("Progresso de Faixa acessado.");
+            });
+
+            // Avisos e Comunicados
+            document.getElementById('avisos-content').addEventListener('click', () => {
+                console.log("Avisos e Comunicados acessados.");
+            });
+
+            // Calendário de Eventos
+            document.getElementById('eventos-content').addEventListener('click', () => {
+                console.log("Calendário de Eventos acessado.");
+            });
+
+            // Situação Financeira
+            document.getElementById('financeiro-content').addEventListener('click', () => {
+                console.log("Situação Financeira acessada.");
+            });
+
+            // Galeria de Fotos/Vídeos - Substituir placeholders por imagens reais
+            const galleryImages = [
+                'img/artes-marciais-de-close-up-de-faixa-preta.jpg',
+                'img/ginasio-de-ginastica-organizado-preparado-para-treinamento.jpg',
+                'img/mulher-meditando-com-os-olhos-fechados.jpg',
+                'img/retrato-em-preto-e-branco-de-um-atleta-participando-dos-esportes-campeonato-olimpico.jpg',
+                'img/screen-5 (1).jpg'
+            ];
+            const galleryContainer = document.querySelector('#galeria-content .grid');
+            if (galleryContainer) {
+                galleryContainer.innerHTML = ''; // Limpa os placeholders existentes
+                galleryImages.forEach(imageSrc => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageSrc;
+                    imgElement.alt = 'Imagem da Galeria';
+                    imgElement.classList.add('w-full', 'h-auto', 'rounded-lg', 'shadow-md', 'object-cover');
+                    galleryContainer.appendChild(imgElement);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Ricardo Santos - Judô</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Teko & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilo base com as fontes personalizadas */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+        h1, h2, h3, .font-teko {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .text-shadow-strong {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .bg-red-brand {
+            background-color: #E50914; /* Tom de vermelho vibrante */
+        }
+        .text-red-brand {
+            color: #E50914;
+        }
+        .border-red-brand {
+            border-color: #E50914;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="bg-black/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3">
+                <img src="https://placehold.co/50x50/E50914/000000?text=A" alt="Logo Arena Ricardo Santos" class="h-10 w-10 rounded-full border-2 border-red-brand">
+                <span class="font-teko text-3xl font-bold text-white tracking-wider">ARENA RICARDO SANTOS</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#filosofia" class="text-gray-300 hover:text-red-brand font-semibold transition-colors">Filosofia</a>
+                <a href="#planos" class="text-gray-300 hover:text-red-brand font-semibold transition-colors">Planos</a>
+                <a href="#contato" class="text-gray-300 hover:text-red-brand font-semibold transition-colors">Contato</a>
+            </div>
+
+            <a href="#contato" class="hidden lg:block bg-red-brand text-white font-bold py-2 px-5 rounded-md hover:bg-red-700 transition-transform hover:scale-105">
+                INSCREVA-SE
+            </a>
+
+            <button id="mobile-menu-button" class="lg:hidden text-white">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-black border-t border-gray-800">
+            <a href="#filosofia" class="block py-3 px-6 text-gray-300 font-semibold hover:bg-gray-900">Filosofia</a>
+            <a href="#planos" class="block py-3 px-6 text-gray-300 font-semibold hover:bg-gray-900">Planos</a>
+            <a href="#contato" class="block py-3 px-6 text-gray-300 font-semibold hover:bg-gray-900">Contato</a>
+            <div class="p-4">
+                 <a href="#contato" class="w-full text-center block bg-red-brand text-white font-bold py-3 px-5 rounded-md hover:bg-red-700">
+                    INSCREVA-SE
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section id="inicio" class="relative min-h-[85vh] flex items-center justify-center text-center text-white">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('http://googleusercontent.com/file_content/1');"></div>
+            <div class="absolute inset-0 bg-black/70"></div>
+            
+            <div class="relative container mx-auto px-6">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold uppercase text-shadow-strong">
+                    DOMINE O <span class="text-red-brand">CAMINHO SUAVE</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-300 font-light">
+                    Transforme sua força interior em técnica. Junte-se à Arena Ricardo Santos e descubra o verdadeiro espírito do judô.
+                </p>
+                <div class="mt-8">
+                    <a href="#planos" class="bg-red-brand text-white font-bold py-4 px-10 rounded-md text-lg uppercase hover:bg-red-700 transition-transform hover:scale-105 inline-block">
+                        Comece sua jornada
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PHILOSOPHY SECTION ===== -->
+        <section id="filosofia" class="py-20 md:py-32 bg-white text-black">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                    <div class="w-full lg:w-1/2 flex justify-center">
+                        <img src="http://googleusercontent.com/file_content/2" alt="Jigoro Kano" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-8 border-red-brand shadow-2xl">
+                    </div>
+                    <div class="w-full lg:w-1/2 text-center lg:text-left">
+                        <h2 class="font-teko text-5xl md:text-6xl font-bold">A MENTE POR TRÁS DA ARTE</h2>
+                        <span class="text-red-brand font-bold text-lg">JIGORO KANO</span>
+                        <blockquote class="mt-4">
+                            <p class="text-2xl md:text-3xl font-light italic text-gray-700">"Saber cada dia um pouco mais e usá-lo todos os dias para o bem, esse é o caminho do verdadeiro judoca."</p>
+                        </blockquote>
+                        <p class="mt-6 text-gray-600">
+                            Nossa escola se baseia nos princípios fundamentais do judô: disciplina, respeito e o uso eficiente da energia. Aqui, você não aprende apenas a lutar, aprende a viver melhor.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== WHY US SECTION ===== -->
+        <section class="py-20 md:py-24 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-teko text-5xl md:text-6xl font-bold">POR QUE TREINAR CONOSCO?</h2>
+                    <p class="max-w-xl mx-auto text-gray-400">Somos mais que uma academia, somos uma família.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="border border-gray-800 bg-gray-900/50 p-8 rounded-lg text-center transform hover:border-red-brand hover:-translate-y-2 transition-all duration-300">
+                        <i data-lucide="award" class="w-12 h-12 text-red-brand mx-auto mb-4"></i>
+                        <h3 class="font-teko text-3xl font-bold">INSTRUTORES DE ELITE</h3>
+                        <p class="text-gray-400">Aprenda com campeões que vivem e respiram o judô.</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="border border-gray-800 bg-gray-900/50 p-8 rounded-lg text-center transform hover:border-red-brand hover:-translate-y-2 transition-all duration-300">
+                        <i data-lucide="building-2" class="w-12 h-12 text-red-brand mx-auto mb-4"></i>
+                        <h3 class="font-teko text-3xl font-bold">ESTRUTURA MODERNA</h3>
+                        <p class="text-gray-400">Tatames de alta qualidade e um ambiente seguro e limpo.</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="border border-gray-800 bg-gray-900/50 p-8 rounded-lg text-center transform hover:border-red-brand hover:-translate-y-2 transition-all duration-300">
+                        <i data-lucide="heart-handshake" class="w-12 h-12 text-red-brand mx-auto mb-4"></i>
+                        <h3 class="font-teko text-3xl font-bold">AMBIENTE FAMILIAR</h3>
+                        <p class="text-gray-400">Respeito e amizade dentro e fora do tatame.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== PRICING SECTION ===== -->
+        <section id="planos" class="py-20 md:py-24 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-teko text-5xl md:text-6xl font-bold">ESCOLHA SEU PLANO</h2>
+                    <p class="max-w-xl mx-auto text-gray-400">Flexibilidade para sua jornada no judô começar agora.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <!-- Plano 1 -->
+                    <div class="bg-black border-2 border-gray-800 rounded-lg p-8 flex flex-col text-center">
+                        <h3 class="font-teko text-4xl font-bold">PLANO GUERREIRO</h3>
+                        <p class="text-gray-400 mb-6">3x por semana</p>
+                        <p class="text-5xl font-bold my-4">R$140<span class="text-xl font-medium text-gray-400">/mês</span></p>
+                        <p class="text-gray-500 mb-8 flex-grow">Ideal para quem busca consistência e evolução técnica contínua.</p>
+                        <a href="#contato" class="w-full text-center mt-auto bg-gray-700 text-white font-bold py-3 px-5 rounded-md hover:bg-gray-600">Selecionar Plano</a>
+                    </div>
+                    <!-- Plano 2 (Destaque) -->
+                    <div class="bg-black border-2 border-red-brand rounded-lg p-8 flex flex-col text-center shadow-2xl shadow-red-900/30">
+                        <h3 class="font-teko text-4xl font-bold text-red-brand">PLANO SAMURAI</h3>
+                        <p class="text-gray-400 mb-6">Acesso Livre</p>
+                        <p class="text-5xl font-bold my-4">R$180<span class="text-xl font-medium text-gray-400">/mês</span></p>
+                        <p class="text-gray-500 mb-8 flex-grow">Para os mais dedicados. Treine quando quiser e acelere seus resultados.</p>
+                        <a href="#contato" class="w-full text-center mt-auto bg-red-brand text-white font-bold py-3 px-5 rounded-md hover:bg-red-700">Tornar-se Samurai</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SECTION ===== -->
+        <section id="contato" class="py-20 md:py-24 bg-white text-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="font-teko text-5xl md:text-6xl font-bold">DÊ O PRIMEIRO PASSO</h2>
+                    <p class="max-w-xl mx-auto text-gray-600">Agende uma aula experimental gratuita. Sem compromisso.</p>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <form>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            <input type="text" placeholder="Seu nome completo" class="w-full p-4 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-brand">
+                            <input type="tel" placeholder="Seu telefone (WhatsApp)" class="w-full p-4 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-brand">
+                        </div>
+                        <button type="submit" class="w-full bg-black text-white font-bold text-lg py-4 px-8 rounded-md hover:bg-gray-800 transition-colors">
+                            AGENDAR MINHA AULA EXPERIMENTAL
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-black border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p>&copy; 2025 Arena Ricardo Santos. Criado com paixão pelo Judô.</p>
+            <p class="text-sm">Rua dos Tatames, 123 - Centro, Toledo - PR</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-red-brand"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-red-brand"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-red-brand"><i data-lucide="youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Inicializa Lucide Icons
+        lucide.createIcons();
+
+        // Lógica para o menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fecha o menu mobile ao clicar em um link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>

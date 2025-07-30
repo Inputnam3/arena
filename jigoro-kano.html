@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigoro Kano e a Filosofia do Judô - Arena Ricardo Santos</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Teko & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Inter:wght@400;500;700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Estilo base com as fontes personalizadas */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-teko {
+            font-family: 'Teko', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .text-shadow-strong {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .bg-red-brand {
+            background-color: #E50914; /* Tom de vermelho vibrante */
+        }
+        .text-red-brand {
+            color: #E50914;
+        }
+        .border-red-brand {
+            border-color: #E50914;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- ===== HEADER ===== -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200">
+        <nav class="container mx-auto px-6 py-2 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://placehold.co/50x50/E50914/FFFFFF?text=A" alt="Logo Arena Ricardo Santos" class="h-10 w-10 rounded-full border-2 border-red-brand">
+                <span class="font-teko text-3xl font-bold text-gray-800 tracking-wider">ARENA RICARDO SANTOS</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="index.html#filosofia" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Filosofia</a>
+                <a href="index.html#planos" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Planos</a>
+                <a href="index.html#contato" class="text-gray-600 hover:text-red-brand font-semibold transition-colors">Contato</a>
+            </div>
+
+            <a href="index.html#contato" class="hidden lg:block bg-red-brand text-white font-bold py-2 px-5 rounded-md hover:bg-red-700 transition-transform hover:scale-105">
+                INSCREVA-SE
+            </a>
+
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
+            <a href="index.html#filosofia" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Filosofia</a>
+            <a href="index.html#planos" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Planos</a>
+            <a href="index.html#contato" class="block py-3 px-6 text-gray-600 font-semibold hover:bg-gray-100">Contato</a>
+            <div class="p-4">
+                 <a href="index.html#contato" class="w-full text-center block bg-red-brand text-white font-bold py-3 px-5 rounded-md hover:bg-red-700">
+                    INSCREVA-SE
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-20 md:py-32 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <div class="w-20 h-1 bg-red-brand mb-4 mx-auto"></div>
+                    <h1 class="font-teko text-5xl md:text-6xl font-bold">JIGORO KANO E OS PRINCÍPIOS DO JUDÔ</h1>
+                    <p class="max-w-2xl mx-auto text-gray-600 mt-4">Descubra a mente por trás da arte e a filosofia que guia o caminho suave.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row items-start gap-12 lg:gap-16 mt-12">
+                    <div class="w-full lg:w-1/3 flex justify-center lg:justify-start">
+                        <img src="img/screen-5 (1).jpg" alt="Jigoro Kano" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-8 border-red-brand shadow-2xl">
+                    </div>
+                    <div class="w-full lg:w-2/3 text-center lg:text-left">
+                        <h2 class="font-teko text-4xl font-bold text-red-brand mb-4">Jigoro Kano: O Fundador do Judô</h2>
+                        <p class="text-gray-700 leading-relaxed font-lora mb-6">
+                            Jigoro Kano (1860-1938) foi um educador e atleta japonês, criador do Judô. Ele desenvolveu o Judô a partir de antigas formas de jujutsu, com o objetivo de criar não apenas uma arte marcial, mas um método de educação física, mental e moral. Kano acreditava que o Judô poderia ser uma ferramenta para o aprimoramento humano e para a contribuição social.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed font-lora">
+                            Sua visão ia além do combate, buscando desenvolver o caráter, a disciplina e o respeito mútuo. Ele introduziu o sistema de faixas coloridas (kyu e dan) e popularizou o Judô internacionalmente, tornando-o o primeiro esporte de combate a ser incluído nos Jogos Olímpicos.
+                        </p>
+
+                        <h2 class="font-teko text-4xl font-bold text-red-brand mt-10 mb-4">Os Princípios Fundamentais do Judô</h2>
+                        <p class="text-gray-700 leading-relaxed font-lora mb-6">
+                            O Judô de Jigoro Kano é baseado em dois princípios filosóficos centrais:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-3">
+                            <li>
+                                <span class="font-bold text-gray-800">Seiryoku Zenyo (Máxima Eficiência com Mínimo Esforço):</span> Este princípio ensina a usar a energia de forma inteligente, aproveitando a força do oponente e as leis da física para alcançar o objetivo com o menor gasto de energia possível. Aplica-se tanto no tatame quanto na vida cotidiana, incentivando a otimização de recursos e a busca por soluções eficazes.
+                            </li>
+                            <li>
+                                <span class="font-bold text-gray-800">Jita Kyoei (Prosperidade Mútua e Bem-Estar):</span> Este é o princípio moral do Judô, que enfatiza a importância da cooperação e do benefício mútuo. Através da prática do Judô, os indivíduos aprendem a respeitar uns aos outros, a trabalhar em conjunto e a contribuir para o bem-estar da comunidade. É a ideia de que o crescimento individual deve sempre estar ligado ao crescimento coletivo.
+                            </li>
+                        </ul>
+                        <p class="text-gray-700 leading-relaxed font-lora mt-6">
+                            Na Arena Ricardo Santos, cultivamos esses princípios em cada aula, formando não apenas judocas, mas cidadãos conscientes e preparados para os desafios da vida.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>&copy; 2025 Arena Ricardo Santos. Criado com paixão pelo Judô.</p>
+            <p class="text-sm">Rua México, 360 - JD Gisela, Toledo - PR</p>
+            <p class="text-sm">(45) 99906-2131</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-red-brand"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-red-brand"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-red-brand"><i data-lucide="youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializa Lucide Icons
+        lucide.createIcons();
+
+        // Lógica para o menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fecha o menu mobile ao clicar em um link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+</html>
